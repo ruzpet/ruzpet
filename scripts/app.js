@@ -57,15 +57,15 @@ httpRequest.addEventListener("readystatechange", function() {
                 
                 videoCard =  `
                     <div class="swiper-slide row mr-5 p-5">
-                        <div class="inner details col-md-6 col-sm-12">
+                        <div class="inner details col-lg-6 col-md-12 col-sm-12">
                             <h1 class="h3"> ${videoItem[x].title} </h1>
                             <h5 class="h6 mb-4" style="color:#4F4F4F;">Year: ${videoItem[x].date}</h5>
                             <p class="h6">Description: ${videoItem[x].description} </p>
                         </div>
-                        <div class="inner video col-md-6 col-sm-12"> 
+                        <div class="inner video col-lg-6 col-md-12 col-sm-12 col-sm-12"> 
                             <iframe class="w-100 h-100" src="${videoItem[x].src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <div class="swiper shortcuts col-md-6 ml-0 mr-0 mt-5 mb-5 nested">
+                        <div class="swiper shortcuts col-lg-6 col-md-12 col-sm-12 ml-0 mr-0 mt-5 mb-5 nested">
                             ${shortcuts}
                         </div> 
                     </div>
@@ -136,12 +136,12 @@ httpRequest.addEventListener("readystatechange", function() {
                 
                 exhibitionCard =  `
                     <div class="swiper-slide row p-5">
-                        <div class="inner details col-md-6 col-sm-12">
+                        <div class="inner details col-lg-6 col-md-12 col-sm-12 mr-3">
                             <h1 class="h4"> ${exhibitionItem[x].title} </h1>
                             <h5 class="h6 mb-4" style="color:#4F4F4F;">Year: ${exhibitionItem[x].year}</h5>
                         </div>
-                        <div class="swiper col-md-6 col-sm-12 nested-swiper" style="width=10rem; height:15rem;>
-                            <div class="swiper-wrapper nested-wrapper">
+                        <div class="col-lg-6 col-md-12 col-sm-12 nested-swiper">
+                            <div class="nested-wrapper">
                                 ${exhibitions}
                             </div>                            
                         </div>
@@ -203,6 +203,19 @@ function showSlides(val) {
 
    //portfolio menu
    (function(dom, window) {
+
+    //header menu 
+    window.addEventListener('click', function(event){
+        let navbar = dom.getElementsByClassName('navbar');
+
+        if (event.target !== navbar && event.target.parentNode != navbar){
+            navbar.style.display = "none";
+        }
+
+    });
+    
+
+    //portfolio menu
     let links = dom.querySelectorAll('.nav-link');
     let all_containers = dom.querySelectorAll('.portfolio-item');
     

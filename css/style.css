@@ -97,26 +97,11 @@ a {
 
 .nav .nav-item .nav-link {
   color: #000000;
+  border-bottom: 1px solid #4F4F4F;
 }
 
-.nav .nav-item .nav-link:after {
-  display: block;
-  content: attr(data-text);
-  content: attr(data-text)/"";
-  height: 0;
-  visibility: hidden;
-  overflow: hidden;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  pointer-events: none;
-  font-weight: 600;
-}
-
-.nav .nav-item:hover .nav-link, .nav .nav-item:focus .nav-link {
-  color: #4F4F4F;
-  font-weight: 600;
+.nav .nav-item:hover {
+  border-bottom: 2px solid #4F4F4F;
 }
 
 .swiper .swiper-slide {
@@ -201,8 +186,6 @@ a {
   position: absolute;
   left: 50%;
   top: inherit;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   padding-top: calc(5em + 5vw);
@@ -210,12 +193,11 @@ a {
 
 #header .header-container .burger-menu .navbar__nav .item {
   display: block !important;
-  color: #e7e7e7;
 }
 
 #header .header-container .burger-menu .navbar__nav .item .link {
   position: relative;
-  color: #e7e7e7;
+  color: #b6b6b6;
 }
 
 #header .header-container .burger-menu .navbar__nav .item .link:hover {
@@ -228,7 +210,7 @@ a {
 }
 
 #header .header-container .burger-menu .navbar__nav .item .link .arrow {
-  border: solid #e7e7e7;
+  border: solid #b6b6b6;
   border-width: 0 1px 1px 0;
   display: inline-block;
   padding: 1.5px;
@@ -243,21 +225,21 @@ a {
   margin-bottom: 2rem;
 }
 
-#header .header-container .burger-menu .navbar__nav .item .dropdown {
-  display: inline-block;
-}
-
 #header .header-container .burger-menu .navbar__nav .item .dropdown__content {
-  display: none;
+  opacity: 0;
   position: relative;
   right: -2rem;
   top: 1rem;
-  -webkit-transition: all 0.4s ease-in;
-  transition: all 0.4s ease-in;
+  -webkit-transition: opacity .4s ease, height .5s ease;
+  transition: opacity .4s ease, height .5s ease;
+  height: 0;
 }
 
 #header .header-container .burger-menu .navbar__nav .item.dropdown:hover .dropdown__content {
-  display: block;
+  opacity: 1;
+  height: 100%;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 #header .header-container .burger-menu input[type="checkbox"] {
@@ -288,7 +270,7 @@ a {
 }
 
 #header .header-container .burger-menu input[type="checkbox"]:checked ~ label:hover .bar {
-  background-color: #e7e7e7;
+  background-color: #b6b6b6;
 }
 
 #header .header-container .burger-menu label {
@@ -376,31 +358,6 @@ a {
   padding: .5rem;
 }
 
-.social--container .social .arrows {
-  -webkit-transition: width .5s ease;
-  transition: width .5s ease;
-  margin: 0;
-}
-
-.social--container .social .arrows .icon {
-  color: #F2F2F2;
-}
-
-.social--container .social .arrows .icon:hover .social__icons {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.social--container .social .arrows .icon:hover .arrows {
-  width: 3rem;
-}
-
-.social--container .social .arrows .icon:hover .social__icons {
-  -webkit-box-shadow: 0px 0px 5px 10px #3f3e3e;
-          box-shadow: 0px 0px 5px 10px #3f3e3e;
-}
-
 .social--container .social .social__icons {
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -416,6 +373,24 @@ a {
 .social--container .social .social__icons li a i {
   font-size: 1.5rem;
   color: #F2F2F2;
+}
+
+.social--container .social .arrows {
+  -webkit-transition: width .4s ease;
+  transition: width .4s ease;
+  margin: 0;
+}
+
+.social--container .social .arrows .icon {
+  color: #F2F2F2;
+}
+
+.social--container .social:hover .social__icons {
+  opacity: 1;
+}
+
+.social--container .social:hover .arrows {
+  width: 3rem;
 }
 
 .about__inner .info .heading {
@@ -456,13 +431,19 @@ a {
   background-color: #4F4F4F;
 }
 
+.about__inner .contact .socila .icon {
+  border: 1px solid linear-gradient(315deg, #d3d3d3 0%, #57606f 60%);
+}
+
 .about__inner .contact .socila .icon:hover {
   color: #4F4F4F;
 }
 
 #portfolio {
   cursor: pointer;
-  height: 100vh;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: azure;
 }
 
 #portfolio .container .row .shortcuts {
@@ -481,7 +462,12 @@ a {
   text-align: center;
 }
 
+#exhibitions {
+  min-height: 100%;
+  overflow: hidden;
+}
+
 .footer-area {
-  background-color: #e7e7e7;
+  background-color: #b6b6b6;
 }
 /*# sourceMappingURL=style.css.map */
